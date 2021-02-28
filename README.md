@@ -24,6 +24,7 @@ a, b, c, d, e, f, g, h, i, j, k, l, m, n, o , q, r, s, t, u, v, w, x, y, z
 ## **Instrucciones**
 Haga click en<a href="./vigenere-site/index.html" target="_blank"><strong>VigenereCipher</strong></a> para ir al cifrador. 
 
+
 ![Cipher-gui](./images/cipher-gui.png)
 
 - Todos los mensajes se transforman a minúsculas antes de ser procesados
