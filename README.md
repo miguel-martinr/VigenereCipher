@@ -32,6 +32,6 @@ Haga click en <a href="./vigenere-site/index.html" target="_blank"><strong>Vigen
 - Los espacios, saltos de línea, signos de puntuación o signos no pertenecientes al alfabeto son ignorados.
 - **Clave**: Por defecto es mision. Para cambiarla modifique el campo correspondiente y presione el botón `Actualizar`
 - **Cifrar un mensaje:** Redacte el mensaje a cifrar en el campo `Mensaje` y presione el botón `Cifrar` para que aparezca el mensaje cifrado en el campo `Mensaje Cifrado`. Para copiar el mensaje cifrado al portapapeles presione el botón `Copiar`
-- **Descifrar un mensaje:** Redacte el mensaje cifrado en el cmapo `Mensaje Cifrado` y presione el botón `Descifrar` para que apareza el mensaje descifrado en el campo `Mensaje`.
+- **Descifrar un mensaje:** Redacte el mensaje cifrado en el campo `Mensaje Cifrado` y presione el botón `Descifrar` para que apareza el mensaje descifrado en el campo `Mensaje`.
 
 ![Vigenere gui demo](images/gui-demo.gif)
