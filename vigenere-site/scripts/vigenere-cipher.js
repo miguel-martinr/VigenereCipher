@@ -63,15 +63,18 @@ export function VigenereCipher(key = 'mision', alphabet = []) {
    * @return {char} Caracter resultado.
    */
   this.charCipher = function(ogChar, index, cipher = true) {
+    // Convertimos el caracter a lowecase y eliminamos acentos 
     const char = ogChar.toLowerCase().normalize('NFD')
       .replace(/[\u0300-\u036f]/g, '');
     const key = this.key;
     const alphabet = this.alphabet;
 
+    // Verificamos que el índice pertenezca a la clave
     if (index < 0 || index >= key.length) {
       return undefined;
     }
 
+    // Verificamos que el caracter pertenezca al alfabeto
     if (alphabet.indexOf(char) < 0) {
       return undefined;
     }
