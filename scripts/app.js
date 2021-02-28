@@ -5,8 +5,8 @@ let showKey = false;
 let vigenere = new VigenereCipher();
 
 function toggleKeyView() {
-  let keyCheckBox = document.getElementById('keyCheckBox');
-  let keyInput = document.getElementById('keyInput');
+  let keyCheckBox = document.getElementById('showKeyInput');
+  let keyInput = document.getElementById('key');
   
   showKey = !showKey;
   if (showKey) {
@@ -16,6 +16,12 @@ function toggleKeyView() {
   }
 }
 
+function updateKey() {
+  let newKey = document.getElementById('key').value;
+  if (newKey) {
+    vigenere.key = newKey;
+  }
+}
 
 function cipherMessage() {
   let message = document.getElementById('message').value;
@@ -31,12 +37,6 @@ function decipherMessage() {
   document.getElementById('message').value = message;
 }
 
-function updateKey() {
-  let newKey = document.getElementById('keyInput').value;
-  if (newKey) {
-    vigenere.key = newKey;
-  }
-}
 
 window.updateKey = updateKey;
 window.decipherMessage = decipherMessage;

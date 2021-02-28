@@ -28,7 +28,8 @@ export function VigenereCipher(key = "mision", alphabet = []) {
     };
 
 
-    this.charCipher = function(char, index, cipher = true) {
+    this.charCipher = function(ogChar, index, cipher = true) {
+      const char = ogChar.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
       const key = this.key
       const alphabet = this.alphabet
       
