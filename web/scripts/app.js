@@ -1,56 +1,46 @@
-ALPHABET = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
-  'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 
-  's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
+import {VigenereCipher} from './vigenere-cipher.js'
 
-function VigenereCipher(key, alphabet = ALPHABET) {
-  this.key = key;
-  this.alphabet = alphabet;
+let showKey = false;
+let vigenere = new VigenereCipher();
 
-  this.cipherChar = function(char, index) {
-    // @alphabet[(@alphabet.index(c) + @alphabet.index(@key[index])) % @alphabet.size]
-    const key = this.key
-    const alphabet = this.alphabet
-    
-    // TODO: handle out of bounds
-    if (index < 0 || index >= key.length) {
-      return undefined;
-    }
-
-    if (alphabet.indexOf(char) < 0) {
-      return undefined;
-    }
-    
-    const cipheredCharIndex = (alphabet.indexOf(char) + alphabet.indexOf(key[index])) % alphabet.length;
-    const cipheredChar = alphabet[cipheredCharIndex];
-
-    return cipheredChar;
-  };
-
-  this.cipherMessage = function (message) {
-    // Limpiar el mensaje (eliminar espacios \n \t, poner todo a lowercase)
-
-
-    // Descomponer la cadena en letras y cifrar cada una para formar el mensaje cifrado
-    
-    let keyIndex = 0;
-    let cipheredMessage = "";
-
-    message.split('').map( letter => {
-      let cipheredChar = this.cipherChar(letter, keyIndex % this.key.length);
-      if (cipheredChar) {
-        cipheredMessage += cipheredChar;
-        keyIndex++;
-      }
-    });
-
-    return cipheredMessage;
-  };
-
-
+function toggleKeyView() {
+  let keyCheckBox = document.getElementById('keyCheckBox');
+  let keyInput = document.getElementById('keyInput');
+  
+  showKey = !showKey;
+  if (showKey) {
+    keyInput.type = 'text';
+  } else {
+    keyInput.type = 'password';
+  }
 }
 
 
-const vigenere = new VigenereCipher('mision');
-console.log(vigenere.cipherMessage('este mensaje se autodestruira'));
+function cipherMessage() {
+  let message = document.getElementById('message').value;
+  let cipheredMessage = vigenere.cipherMessage(message);
+
+  document.getElementById('cipheredMessage').value = cipheredMessage;
+}
+
+function decipherMessage() {
+  let cipheredMessage = document.getElementById('cipheredMessage').value;
+  let message = vigenere.decipherMessage(cipheredMessage);
+
+  document.getElementById('message').value = message;
+}
+
+function updateKey() {
+  let newKey = document.getElementById('keyInput').value;
+  if (newKey) {
+    vigenere.key = newKey;
+  }
+}
+
+window.updateKey = updateKey;
+window.decipherMessage = decipherMessage;
+window.cipherMessage = cipherMessage;
+window.toggleKeyView = toggleKeyView; 
+window.vigenere = vigenere;
 
