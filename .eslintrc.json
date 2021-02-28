@@ -11,6 +11,8 @@
         "sourceType": "module"
     },
     "rules": {
-      "require-jsdoc": "off",
+      "linebreak-style": "off",
+      "indent": "off",
+      "max-len": "off"
     }
 }
