@@ -1,4 +1,9 @@
-
+/**
+ * Implementación del cifrado de Vigenère
+ * 
+ * @author Miguel Martín
+ * @email alu0101209777@ull.edu.es
+ */
 
 /**
  * Constructor de objetos VigenereCipher
@@ -99,6 +104,7 @@ export function VigenereCipher(key = 'mision', alphabet = []) {
     let keyIndex = 0;
     let cipheredMessage = '';
 
+    // Convertimos el mensaje a un array de caracteres y ciframos cada uno de ellos
     message.split('').map( (letter) => {
       const cipheredChar = cipher ? this.cipherChar(letter, keyIndex % this.key.length) : this.decipherChar(letter, keyIndex % this.key.length);
       if (cipheredChar) {
